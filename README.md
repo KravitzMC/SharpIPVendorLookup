@@ -74,7 +74,3 @@ Please make sure to update tests as appropriate.
 ## Community
 
 ![Sponsors](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/dotnetthiland.jpg)
-
-
-## License
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FKravitzMC%2FIPDeviceManufacturer.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FKravitzMC%2FIPDeviceManufacturer?ref=badge_large)
