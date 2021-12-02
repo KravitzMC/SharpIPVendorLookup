@@ -44,7 +44,7 @@ namespace WindowsForms.Test
 
         private void ManufacturerScanner_ScanRecieved(object sender, ScanRecievedEventArgs args)
         {
-            // Use cross thread operation for GUI mode.
+            //Use cross thread operation for debug mode.
 
             if (InvokeRequired)
             {
@@ -62,7 +62,7 @@ namespace WindowsForms.Test
                 }));
             }
             else
-            {
+            {            
                 DgvIPScanner.Rows.Add(
                         $"{args.IPAddress}",
                         $"{args.MACAddress}",
