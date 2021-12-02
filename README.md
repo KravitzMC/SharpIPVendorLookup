@@ -12,7 +12,7 @@ C# Find the vendor / manufacturer of a device description  by IP/MAC Address fro
 
 ✔️ Fast IP/MAC scanner by using thread parallel.
 
-✔️ Get more deivce information from IP/MAC by general technical usually can't do it.
+✔️ Get more deivce information from IP/MAC by normal technical usually can't do it.
 
 ✔️ Vendors / Manufacturer from the IEEE Standards Association have over than 40000+ devices .
 
