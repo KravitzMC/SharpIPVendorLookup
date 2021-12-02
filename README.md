@@ -73,4 +73,4 @@ Please make sure to update tests as appropriate.
 
 ## Community
 
-![Sponsors](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/dotnetthiland.jpg)
+[![Community](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/dotnetthiland.jpg)](https://www.dotnetthailand.com) 
