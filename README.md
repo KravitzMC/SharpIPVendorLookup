@@ -6,7 +6,7 @@ C# Find the vendor / manufacturer of a device description  by IP/MAC Address fro
 
 ## Nuget
 
-[![Nuget](https://img.shields.io/nuget/dt/IPDeviceManufacturer?style=for-the-badge)](https://www.nuget.org/packages/Acolyte.Net.Manufacturer/1.0.0.3) 
+[![NuGet version](https://buildstats.info/nuget/Acolyte.Net.Manufacturer)](https://www.nuget.org/packages/Acolyte.Net.Manufacturer/1.0.0.3)
 
 ##  Why must be this library ?
 
