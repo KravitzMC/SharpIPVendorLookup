@@ -1,22 +1,26 @@
 ## Sharp-IP  Vendors Device Manufacturer
+
 C# Find the vendor / manufacturer of a device description  by IP/MAC Address from network adapter.
 
+[![IEEE_Standard](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/iee.png)](https://standards.ieee.org/products-services/regauth/index.html)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/LICENSE)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FKravitzMC%2FIPDeviceManufacturer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FKravitzMC%2FIPDeviceManufacturer?ref=badge_shield)
 
 ## Nuget
 
-[![Nuget](https://img.shields.io/nuget/dt/IPDeviceManufacturer?style=for-the-badge)](https://www.nuget.org/packages/Acolyte.Net.Manufacturer/1.0.0.3) 
+[![NuGet version](https://buildstats.info/nuget/Acolyte.Net.Manufacturer)](https://www.nuget.org/packages/Acolyte.Net.Manufacturer/1.0.0.3)
 
 ##  Why must be this library ?
 
-✔️ Fast IP/MAC helper scanner by using thread parallel.
+✔️ Fast IP/MAC scanner by using thread parallel.
 
-✔️ Get more deivce information from IP/MAC by general can't do it.
+✔️ Get more deivce information from IP/MAC by normal technical usually can't do it.
 
 ✔️ Vendors / Manufacturer from the IEEE Standards Association have over than 40000+ devices .
 
-✔️ You can scan range IP address by without pinging cause some client not response anytime. 
-    but we use Send ARP instead.
+✔️ You can scan range IP address by without pinging because some client not response anytime. 
+    but we use Send ARP lookup instead to get all devices info.
 
 ## Help or Feedback
 
@@ -72,4 +76,4 @@ Please make sure to update tests as appropriate.
 
 ## Community
 
-![Sponsors](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/dotnetthiland.jpg)
+[![Community](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/dotnetthiland.jpg)](https://www.dotnetthailand.com) 
