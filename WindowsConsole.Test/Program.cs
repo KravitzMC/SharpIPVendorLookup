@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Net;
-using System.Threading.Tasks;
 using Acolyte.Net.Manufacturer;
 
 namespace WindowsConsole.Test
@@ -17,13 +16,24 @@ namespace WindowsConsole.Test
             //-------------------------------------------------------------------------------------
 
             IPDeviceManufacturerScanner manufacturerScanner = new IPDeviceManufacturerScanner();
-            manufacturerScanner.SetIPAddressRange(IPAddress.Parse("192.168.43.1"), IPAddress.Parse("192.168.43.255"));
 
             manufacturerScanner.ScanRecieved += ManufacturerScanner_ScanRecieved;
             manufacturerScanner.ScanComplete += ManufacturerScanner_ScanComplete;
 
+            ///Scan by default gateway (current network connection).
+            manufacturerScanner.SetIPAddress();
+
+            ///Scan by IP custom range.
+            //manufacturerScanner.SetIPAddress(IPAddress.Parse("192.168.1.1"), IPAddress.Parse("192.168.1.255"));
+
+            ///Scan by IP-Destination and return to your gateway router.
+            //manufacturerScanner.SetIPAddress(IPAddress.Parse("192.168.1.15"));
+
             manufacturerScanner.StartScan();
+
+            Console.ReadKey();
         }
+
         static void ManufacturerScanner_ScanRecieved(object sender, ScanRecievedEventArgs args)
         {
             Console.WriteLine(

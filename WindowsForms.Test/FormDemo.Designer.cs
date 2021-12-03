@@ -35,6 +35,8 @@
             this.tbIPAddrFrom = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DgvIPScanner = new System.Windows.Forms.DataGridView();
+            this.lblSc = new System.Windows.Forms.Label();
+            this.chk1 = new System.Windows.Forms.CheckBox();
             this.col_ipaddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_mac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_hostName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,14 +44,13 @@
             this.col_companyAddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_countryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_countryname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblSc = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvIPScanner)).BeginInit();
             this.SuspendLayout();
             // 
             // btnScan
             // 
-            this.btnScan.Location = new System.Drawing.Point(741, 23);
+            this.btnScan.Location = new System.Drawing.Point(743, 59);
             this.btnScan.Name = "btnScan";
             this.btnScan.Size = new System.Drawing.Size(171, 35);
             this.btnScan.TabIndex = 0;
@@ -61,7 +62,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 33);
+            this.label1.Location = new System.Drawing.Point(23, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 16);
             this.label1.TabIndex = 1;
@@ -71,7 +72,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(381, 33);
+            this.label2.Location = new System.Drawing.Point(388, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 16);
             this.label2.TabIndex = 2;
@@ -79,7 +80,8 @@
             // 
             // tbIPAddrTo
             // 
-            this.tbIPAddrTo.Location = new System.Drawing.Point(421, 30);
+            this.tbIPAddrTo.Enabled = false;
+            this.tbIPAddrTo.Location = new System.Drawing.Point(428, 66);
             this.tbIPAddrTo.Name = "tbIPAddrTo";
             this.tbIPAddrTo.Size = new System.Drawing.Size(279, 27);
             this.tbIPAddrTo.TabIndex = 3;
@@ -87,7 +89,8 @@
             // 
             // tbIPAddrFrom
             // 
-            this.tbIPAddrFrom.Location = new System.Drawing.Point(81, 30);
+            this.tbIPAddrFrom.Enabled = false;
+            this.tbIPAddrFrom.Location = new System.Drawing.Point(88, 66);
             this.tbIPAddrFrom.Name = "tbIPAddrFrom";
             this.tbIPAddrFrom.Size = new System.Drawing.Size(279, 27);
             this.tbIPAddrFrom.TabIndex = 4;
@@ -95,6 +98,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chk1);
             this.groupBox1.Controls.Add(this.btnScan);
             this.groupBox1.Controls.Add(this.tbIPAddrFrom);
             this.groupBox1.Controls.Add(this.label1);
@@ -103,17 +107,17 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(25, 21);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(936, 74);
+            this.groupBox1.Size = new System.Drawing.Size(936, 113);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "IP Address Range";
+            this.groupBox1.Text = "IP Address ";
             // 
             // DgvIPScanner
             // 
             this.DgvIPScanner.AllowUserToAddRows = false;
             this.DgvIPScanner.AllowUserToDeleteRows = false;
-            this.DgvIPScanner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.DgvIPScanner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DgvIPScanner.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.DgvIPScanner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -125,7 +129,7 @@
             this.col_companyAddr,
             this.col_countryCode,
             this.col_countryname});
-            this.DgvIPScanner.Location = new System.Drawing.Point(25, 120);
+            this.DgvIPScanner.Location = new System.Drawing.Point(25, 155);
             this.DgvIPScanner.MultiSelect = false;
             this.DgvIPScanner.Name = "DgvIPScanner";
             this.DgvIPScanner.ReadOnly = true;
@@ -133,8 +137,32 @@
             this.DgvIPScanner.RowHeadersWidth = 51;
             this.DgvIPScanner.RowTemplate.Height = 24;
             this.DgvIPScanner.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvIPScanner.Size = new System.Drawing.Size(1179, 389);
+            this.DgvIPScanner.Size = new System.Drawing.Size(1283, 452);
             this.DgvIPScanner.TabIndex = 6;
+            // 
+            // lblSc
+            // 
+            this.lblSc.AutoSize = true;
+            this.lblSc.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSc.Location = new System.Drawing.Point(980, 80);
+            this.lblSc.Name = "lblSc";
+            this.lblSc.Size = new System.Drawing.Size(24, 32);
+            this.lblSc.TabIndex = 7;
+            this.lblSc.Text = "-";
+            // 
+            // chk1
+            // 
+            this.chk1.AutoSize = true;
+            this.chk1.Checked = true;
+            this.chk1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chk1.Location = new System.Drawing.Point(88, 32);
+            this.chk1.Name = "chk1";
+            this.chk1.Size = new System.Drawing.Size(214, 24);
+            this.chk1.TabIndex = 5;
+            this.chk1.Text = "Use Default Gateway.";
+            this.chk1.UseVisualStyleBackColor = true;
+            this.chk1.CheckedChanged += new System.EventHandler(this.chk1_CheckedChanged);
             // 
             // col_ipaddr
             // 
@@ -143,7 +171,7 @@
             this.col_ipaddr.Name = "col_ipaddr";
             this.col_ipaddr.ReadOnly = true;
             this.col_ipaddr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_ipaddr.Width = 125;
+            this.col_ipaddr.Width = 150;
             // 
             // col_mac
             // 
@@ -152,7 +180,7 @@
             this.col_mac.Name = "col_mac";
             this.col_mac.ReadOnly = true;
             this.col_mac.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_mac.Width = 125;
+            this.col_mac.Width = 150;
             // 
             // col_hostName
             // 
@@ -161,7 +189,7 @@
             this.col_hostName.Name = "col_hostName";
             this.col_hostName.ReadOnly = true;
             this.col_hostName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_hostName.Width = 125;
+            this.col_hostName.Width = 160;
             // 
             // col_company
             // 
@@ -170,7 +198,7 @@
             this.col_company.Name = "col_company";
             this.col_company.ReadOnly = true;
             this.col_company.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_company.Width = 200;
+            this.col_company.Width = 230;
             // 
             // col_companyAddr
             // 
@@ -179,7 +207,7 @@
             this.col_companyAddr.Name = "col_companyAddr";
             this.col_companyAddr.ReadOnly = true;
             this.col_companyAddr.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_companyAddr.Width = 150;
+            this.col_companyAddr.Width = 240;
             // 
             // col_countryCode
             // 
@@ -197,30 +225,21 @@
             this.col_countryname.Name = "col_countryname";
             this.col_countryname.ReadOnly = true;
             this.col_countryname.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_countryname.Width = 125;
-            // 
-            // lblSc
-            // 
-            this.lblSc.AutoSize = true;
-            this.lblSc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSc.Location = new System.Drawing.Point(980, 50);
-            this.lblSc.Name = "lblSc";
-            this.lblSc.Size = new System.Drawing.Size(20, 25);
-            this.lblSc.TabIndex = 7;
-            this.lblSc.Text = "-";
+            this.col_countryname.Width = 200;
             // 
             // FormDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1234, 537);
+            this.ClientSize = new System.Drawing.Size(1338, 635);
             this.Controls.Add(this.lblSc);
             this.Controls.Add(this.DgvIPScanner);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormDemo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " Vendors Device Manufacturer";
+            this.Text = " IEEE Vendors Device Manufacturer";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormDemo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -239,6 +258,8 @@
         private System.Windows.Forms.TextBox tbIPAddrFrom;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView DgvIPScanner;
+        private System.Windows.Forms.Label lblSc;
+        private System.Windows.Forms.CheckBox chk1;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_ipaddr;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_mac;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_hostName;
@@ -246,6 +267,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_companyAddr;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_countryCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_countryname;
-        private System.Windows.Forms.Label lblSc;
     }
 }

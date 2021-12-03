@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,10 +10,21 @@ using LiteDB;
 
 namespace Acolyte.Net.Manufacturer
 {
-    public class IPDeviceManufacturerScanner
+    public static class Win32ApiCalls
     {
+        [DllImport("iphlpapi.dll", CharSet = CharSet.Auto)]
+        public static extern int GetBestInterface(UInt32 destAddr, out UInt32 bestIfIndex);
+
         [DllImport("iphlpapi.dll", ExactSpelling = true)]
         public static extern int SendARP(int DestIP, int SrcIP, [Out] byte[] pMacAddr, ref int PhyAddrLen);
+    }
+
+    public class IPDeviceManufacturerScanner
+    {
+        /// <summary>
+        /// Set IP Destination Address.
+        /// </summary>
+        private IPAddress IPDefaultGateway { get; set; }
         /// <summary>
         /// Set IP Address range by from.
         /// </summary>
@@ -48,18 +60,6 @@ namespace Acolyte.Net.Manufacturer
         /// </summary>
         private string DevicePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dist", "Devices.db");
 
-        /// <summary>
-        /// Create first instance class.
-        /// </summary>
-        /// <param name="ipAddressFrom"></param>
-        /// <param name="ipAddressTo"></param>
-        public IPDeviceManufacturerScanner(IPAddress ipAddressFrom, IPAddress ipAddressTo)
-        {
-            InitialCollection();
-
-            SetIPAddressRange(ipAddressFrom, ipAddressTo);
-        }
-
         public IPDeviceManufacturerScanner()
         {
             InitialCollection();
@@ -74,10 +74,38 @@ namespace Acolyte.Net.Manufacturer
             }
         }
 
-        public void SetIPAddressRange(IPAddress ipAddressFrom, IPAddress ipAddressTo)
+        /// <summary>
+        /// Set IP Address within custom range.
+        /// </summary>
+        /// <param name="ipAddressFrom"></param>
+        /// <param name="ipAddressTo"></param>
+        public void SetIPAddress(IPAddress ipAddressFrom, IPAddress ipAddressTo)
         {
             this.IPAddressFrom = ipAddressFrom;
             this.IPAddressTo = ipAddressTo;
+        }
+
+        /// <summary>
+        /// Set IP Address by default gateway network connection.
+        /// </summary>
+        /// <param name="fromNetworkAdapter"></param>
+        public void SetIPAddress()
+        {
+            this.IPDefaultGateway = GetDefaultGateway();
+            this.IPAddressFrom = IPDefaultGateway;
+            var ip = this.IPDefaultGateway.ToString().Split('.');
+            this.IPAddressTo = IPAddress.Parse($"{ip[0]}.{ip[1]}.{ip[2]}.255");
+        }
+
+        /// <summary>
+        /// Set IP Address through ip client destination and return to default gateway.
+        /// </summary>
+        public void SetIPAddress(IPAddress IPDestinationAddress)
+        {
+            this.IPDefaultGateway = GetGatewayForDestination(IPDestinationAddress);
+            this.IPAddressFrom = this.IPDefaultGateway;
+            var ip = this.IPDefaultGateway.ToString().Split('.');
+            this.IPAddressTo = IPAddress.Parse($"{ip[0]}.{ip[1]}.{ip[2]}.255");
         }
 
         /// <summary>
@@ -114,7 +142,7 @@ namespace Acolyte.Net.Manufacturer
                             var IpAddress = $"{IP_PREFIX_FROM}.{ip}";
                             IPAddress hostIPAddress = IPAddress.Parse(IpAddress);
                             byte[] ab = new byte[6];
-                            int len = ab.Length, r = SendARP((int)hostIPAddress.Address, 0, ab, ref len);
+                            int len = ab.Length, r = Win32ApiCalls.SendARP((int)hostIPAddress.Address, 0, ab, ref len);
                             var MacAddr = BitConverter.ToString(ab);
 
                             if (MacAddr != EMPTY_MAC_ADDRESS)
@@ -166,6 +194,76 @@ namespace Acolyte.Net.Manufacturer
 
             return null;
         }
+
+        #region Utils
+
+        /// <summary>
+        /// This function reference from : https://stackoverflow.com/a/13635038
+        /// </summary>
+        /// <returns></returns>
+        private IPAddress GetDefaultGateway()
+        {
+            return NetworkInterface
+                .GetAllNetworkInterfaces()
+                .Where(n => n.OperationalStatus == OperationalStatus.Up)
+                .Where(n => n.NetworkInterfaceType != NetworkInterfaceType.Loopback)
+                .SelectMany(n => n.GetIPProperties()?.GatewayAddresses)
+                .Select(g => g?.Address)
+                .Where(a => a != null)
+                .FirstOrDefault();
+        }
+
+        /// <summary>
+        /// This function reference from : https://stackoverflow.com/a/13635038
+        /// </summary>
+        /// <param name="destinationAddress"></param>
+        /// <returns></returns>
+        /// <exception cref="Win32Exception"></exception>
+        public static IPAddress GetGatewayForDestination(IPAddress destinationAddress)
+        {
+            UInt32 destaddr = BitConverter.ToUInt32(destinationAddress.GetAddressBytes(), 0);
+
+            uint interfaceIndex;
+            int result = Win32ApiCalls.GetBestInterface(destaddr, out interfaceIndex);
+            if (result != 0)
+                throw new System.ComponentModel.Win32Exception(result);
+
+            foreach (var ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                var niprops = ni.GetIPProperties();
+                if (niprops == null)
+                    continue;
+
+                var gateway = niprops.GatewayAddresses?.FirstOrDefault()?.Address;
+                if (gateway == null)
+                    continue;
+
+                if (ni.Supports(NetworkInterfaceComponent.IPv4))
+                {
+                    var v4props = niprops.GetIPv4Properties();
+                    if (v4props == null)
+                        continue;
+
+                    if (v4props.Index == interfaceIndex)
+                        return gateway;
+                }
+
+                if (ni.Supports(NetworkInterfaceComponent.IPv6))
+                {
+                    var v6props = niprops.GetIPv6Properties();
+                    if (v6props == null)
+                        continue;
+
+                    if (v6props.Index == interfaceIndex)
+                        return gateway;
+                }
+            }
+
+            return null;
+        }
+
+        #endregion
+
 
         #region Events
 

@@ -29,14 +29,14 @@ namespace WindowsForms.Test
             {
                 this.Invoke(new Action(() =>
                 {
-                    tbIPAddrFrom.Enabled = tbIPAddrTo.Enabled = btnScan.Enabled = true;
+                    chk1.Checked = tbIPAddrFrom.Enabled = tbIPAddrTo.Enabled = btnScan.Enabled = true;
                     lblSc.Text = "Scan Complete";
                     MessageBox.Show("Scan Complete", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }));
             }
             else
             {
-                tbIPAddrFrom.Enabled = tbIPAddrTo.Enabled = btnScan.Enabled = true;
+                chk1.Checked = tbIPAddrFrom.Enabled = tbIPAddrTo.Enabled = btnScan.Enabled = true;
                 lblSc.Text = "Scan Complete";
                 MessageBox.Show("Scan Complete", "Successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -78,14 +78,27 @@ namespace WindowsForms.Test
         [Obsolete]
         private void btnScan_Click(object sender, EventArgs e)
         {
-            //clear data before start (for rows existing).
+            //Clear data UI before start.
+
             DgvIPScanner.Rows.Clear();
 
-            manufacturerScanner.SetIPAddressRange(IPAddress.Parse(tbIPAddrFrom.Text), IPAddress.Parse(tbIPAddrTo.Text));
+            if (chk1.Checked)
+                manufacturerScanner.SetIPAddress();
+            else
+                manufacturerScanner.SetIPAddress(IPAddress.Parse(tbIPAddrFrom.Text), IPAddress.Parse(tbIPAddrTo.Text));
+
             manufacturerScanner.StartScan();
 
             tbIPAddrFrom.Enabled = tbIPAddrTo.Enabled = btnScan.Enabled = false;
             lblSc.Text = "Scaning...";
+        }
+
+        private void chk1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chk1.Checked)
+                tbIPAddrFrom.Enabled = tbIPAddrTo.Enabled = false;
+            else
+                tbIPAddrFrom.Enabled = tbIPAddrTo.Enabled = true;
         }
     }
 }
