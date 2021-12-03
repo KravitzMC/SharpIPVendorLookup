@@ -7,7 +7,7 @@ C# Find the vendor / manufacturer of a device description  by IP/MAC Address fro
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/LICENSE)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FKravitzMC%2FIPDeviceManufacturer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FKravitzMC%2FIPDeviceManufacturer?ref=badge_shield)
 
-## Nuget
+## Install via Nuget
 
 [![NuGet version](https://buildstats.info/nuget/Acolyte.Net.Manufacturer)](https://www.nuget.org/packages/Acolyte.Net.Manufacturer/1.0.0.3)
 
