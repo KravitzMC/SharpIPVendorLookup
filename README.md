@@ -9,7 +9,7 @@ C# Find the vendor / manufacturer of a device description  by IP/MAC Address fro
 
 ## Install via Nuget
 
-[![NuGet version](https://buildstats.info/nuget/Acolyte.Net.Manufacturer)](https://www.nuget.org/packages/Acolyte.Net.Manufacturer/1.0.0.4)
+[![NuGet Badge](https://buildstats.info/nuget/Acolyte.Net.Manufacturer)](https://www.nuget.org/packages/Acolyte.Net.Manufacturer/1.0.0.4)
 
 ##  Why must be this library ?
 
