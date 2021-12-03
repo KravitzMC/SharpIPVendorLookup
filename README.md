@@ -7,7 +7,7 @@ C# Find the vendor / manufacturer of a device description  by IP/MAC Address fro
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/LICENSE)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FKravitzMC%2FIPDeviceManufacturer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FKravitzMC%2FIPDeviceManufacturer?ref=badge_shield)
 
-## Nuget
+## Install via Nuget
 
 [![NuGet version](https://buildstats.info/nuget/Acolyte.Net.Manufacturer)](https://www.nuget.org/packages/Acolyte.Net.Manufacturer/1.0.0.3)
 
@@ -38,10 +38,12 @@ void Main(string[] args)
 {
      //Set IP Address range from and to.    
      IPDeviceManufacturerScanner manufacturerScanner = new IPDeviceManufacturerScanner();
-     manufacturerScanner.SetIPAddressRange(IPAddress.Parse("192.168.1.1"), IPAddress.Parse("192.168.1.255"));
+     manufacturerScanner.SetIPAddress(IPAddress.Parse("192.168.1.1"), IPAddress.Parse("192.168.1.255"));
      manufacturerScanner.ScanRecieved += ManufacturerScanner_ScanRecieved;
      manufacturerScanner.ScanComplete += ManufacturerScanner_ScanComplete;
      manufacturerScanner.StartScan();
+     
+     Console.ReadKey();
 }
 
 static void ManufacturerScanner_ScanRecieved(object sender, ScanRecievedEventArgs args)
@@ -64,6 +66,25 @@ static void ManufacturerScanner_ScanComplete(object sender, EventArgs e)
 }
 
 ```
+---
+
+Scan by default gateway (current network connection).
+
+```csharp
+manufacturerScanner.SetIPAddress();
+```
+---
+Scan by custom IP range.
+```csharp
+manufacturerScanner.SetIPAddress(IPAddress.Parse("192.168.1.1"), IPAddress.Parse("192.168.1.255"));
+```
+---
+Scan by IP Destination and return to your gateway router.
+```csharp
+manufacturerScanner.SetIPAddress(IPAddress.Parse("192.168.1.15"));
+```
+---
+
 ## Example Output
 ![Output](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/outputexample.png)
 
