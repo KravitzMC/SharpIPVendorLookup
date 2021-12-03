@@ -42,6 +42,8 @@ void Main(string[] args)
      manufacturerScanner.ScanRecieved += ManufacturerScanner_ScanRecieved;
      manufacturerScanner.ScanComplete += ManufacturerScanner_ScanComplete;
      manufacturerScanner.StartScan();
+     
+     Console.ReadKey();
 }
 
 static void ManufacturerScanner_ScanRecieved(object sender, ScanRecievedEventArgs args)
