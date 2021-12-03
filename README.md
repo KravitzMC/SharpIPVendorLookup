@@ -66,6 +66,25 @@ static void ManufacturerScanner_ScanComplete(object sender, EventArgs e)
 }
 
 ```
+---
+
+Scan by default gateway (current network connection).
+
+```csharp
+manufacturerScanner.SetIPAddress();
+```
+---
+Scan by custom IP range.
+```csharp
+manufacturerScanner.SetIPAddress(IPAddress.Parse("192.168.1.1"), IPAddress.Parse("192.168.1.255"));
+```
+---
+Scan by IP Destination and return to your gateway router.
+```csharp
+manufacturerScanner.SetIPAddress(IPAddress.Parse("192.168.1.15"));
+```
+---
+
 ## Example Output
 ![Output](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/outputexample.png)
 
