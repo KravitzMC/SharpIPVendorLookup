@@ -17,12 +17,13 @@ namespace WindowsConsole.Test
 
             IPDeviceManufacturerScanner manufacturerScanner = new IPDeviceManufacturerScanner();
 
-            manufacturerScanner.ScanRecieved += ManufacturerScanner_ScanRecieved;
-            manufacturerScanner.ScanComplete += ManufacturerScanner_ScanComplete;
+
 
             ///Scan by default gateway (current network connection).
             manufacturerScanner.SetIPAddress();
 
+            manufacturerScanner.ScanRecieved += ManufacturerScanner_ScanRecieved;
+            manufacturerScanner.ScanComplete += ManufacturerScanner_ScanComplete;
             ///Scan by IP custom range.
             //manufacturerScanner.SetIPAddress(IPAddress.Parse("192.168.1.1"), IPAddress.Parse("192.168.1.255"));
 
@@ -31,7 +32,7 @@ namespace WindowsConsole.Test
 
             manufacturerScanner.StartScan();
 
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         static void ManufacturerScanner_ScanRecieved(object sender, ScanRecievedEventArgs args)

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Acolyte.Net.Manufacturer</id>
+    <version>1.0.0.4</version>
+    <title>Sharp-IP Vendors Device Manufacturer</title>
+    <authors>Acolyte</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+	<icon>https://cdn.iconsflow.com/NPeoOMtnhmyrBFCRyR7W5v81FnYU25-EliOLjtWLMaT0aJaS.png</icon>
+    <projectUrl>https://github.com/KravitzMC/IPDeviceManufacturer</projectUrl>
+    <description>C# Find the vendor / manufacturer of a device description by IP/MAC Address from network adapter.</description>
+    <copyright>(c) 2021 Acolyte</copyright>
+    <tags>manufacturer vendor mac-address ip-address</tags>
+	 <dependencies>
+      <dependency id="Bia.Countries" version="3.0.0" />
+      <dependency id="LiteDB" version="5.0.11" />
+    </dependencies>
+  </metadata>
+</package>
