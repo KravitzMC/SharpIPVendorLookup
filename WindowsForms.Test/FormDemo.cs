@@ -17,7 +17,6 @@ namespace WindowsForms.Test
             if (manufacturerScanner == null)
             {
                 manufacturerScanner = new IPDeviceManufacturerScanner();
-
                 manufacturerScanner.ScanRecieved += ManufacturerScanner_ScanRecieved;
                 manufacturerScanner.ScanComplete += ManufacturerScanner_ScanComplete;
             }
@@ -57,8 +56,7 @@ namespace WindowsForms.Test
                         $"{args.CompanyName}",
                         $"{args.CompanyAddress}",
                         $"{args.CountryCode}",
-                        $"{args.CountryName}"
-                        );
+                        $"{args.CountryName}");
 
                     tooTotal.Text = $"Scan Total : {args.Total} Items";
                 }));
@@ -72,8 +70,9 @@ namespace WindowsForms.Test
                         $"{args.CompanyName}",
                         $"{args.CompanyAddress}",
                         $"{args.CountryCode}",
-                        $"{args.CountryName}"
-                        );
+                        $"{args.CountryName}");
+
+                tooTotal.Text = $"Scan Total : {args.Total} Items";
             }
         }
 
@@ -94,7 +93,6 @@ namespace WindowsForms.Test
             tbIPAddrFrom.Enabled = tbIPAddrTo.Enabled = btnScan.Enabled = false;
             lblSc.Text = "Scaning...";
         }
-
         private void chk1_CheckedChanged(object sender, EventArgs e)
         {
             if (chk1.Checked)
