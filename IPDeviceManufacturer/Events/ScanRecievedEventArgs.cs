@@ -8,12 +8,14 @@ public class ScanRecievedEventArgs
     public string CompanyAddress { get; set; }
     public string CountryCode { get; set; }
     public string CountryName { get; set; }
+    public System.Int32 Total { get; set; } = 0;
     public ScanRecievedEventArgs(System.Net.IPAddress ipAddress,
         string MacAddress,
         string hostName,
         string companyName,
         string companyAddress,
-        string countryCode)
+        string countryCode,
+        int total)
     {
         this.IPAddress = ipAddress;
         this.MACAddress = MacAddress.Trim();
@@ -22,5 +24,6 @@ public class ScanRecievedEventArgs
         this.CompanyAddress = companyAddress.Trim();
         this.CountryCode = countryCode.Trim();
         this.CountryName = Countries.GetCountryByAlpha2(CountryCode).ShortName;
+        this.Total = total;
     }
 }

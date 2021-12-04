@@ -34,9 +34,8 @@
             this.tbIPAddrTo = new System.Windows.Forms.TextBox();
             this.tbIPAddrFrom = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.DgvIPScanner = new System.Windows.Forms.DataGridView();
-            this.lblSc = new System.Windows.Forms.Label();
             this.chk1 = new System.Windows.Forms.CheckBox();
+            this.DgvIPScanner = new System.Windows.Forms.DataGridView();
             this.col_ipaddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_mac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_hostName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,8 +43,12 @@
             this.col_companyAddr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_countryCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_countryname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblSc = new System.Windows.Forms.Label();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tooTotal = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvIPScanner)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnScan
@@ -85,7 +88,7 @@
             this.tbIPAddrTo.Name = "tbIPAddrTo";
             this.tbIPAddrTo.Size = new System.Drawing.Size(279, 27);
             this.tbIPAddrTo.TabIndex = 3;
-            this.tbIPAddrTo.Text = "192.168.43.255";
+            this.tbIPAddrTo.Text = "192.168.1.255";
             // 
             // tbIPAddrFrom
             // 
@@ -94,7 +97,7 @@
             this.tbIPAddrFrom.Name = "tbIPAddrFrom";
             this.tbIPAddrFrom.Size = new System.Drawing.Size(279, 27);
             this.tbIPAddrFrom.TabIndex = 4;
-            this.tbIPAddrFrom.Text = "192.168.43.1";
+            this.tbIPAddrFrom.Text = "192.168.1.1";
             // 
             // groupBox1
             // 
@@ -112,12 +115,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "IP Address ";
             // 
+            // chk1
+            // 
+            this.chk1.AutoSize = true;
+            this.chk1.Checked = true;
+            this.chk1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.chk1.Location = new System.Drawing.Point(88, 32);
+            this.chk1.Name = "chk1";
+            this.chk1.Size = new System.Drawing.Size(214, 24);
+            this.chk1.TabIndex = 5;
+            this.chk1.Text = "Use Default Gateway.";
+            this.chk1.UseVisualStyleBackColor = true;
+            this.chk1.CheckedChanged += new System.EventHandler(this.chk1_CheckedChanged);
+            // 
             // DgvIPScanner
             // 
             this.DgvIPScanner.AllowUserToAddRows = false;
             this.DgvIPScanner.AllowUserToDeleteRows = false;
-            this.DgvIPScanner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.DgvIPScanner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DgvIPScanner.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.DgvIPScanner.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -137,32 +154,8 @@
             this.DgvIPScanner.RowHeadersWidth = 51;
             this.DgvIPScanner.RowTemplate.Height = 24;
             this.DgvIPScanner.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvIPScanner.Size = new System.Drawing.Size(1283, 452);
+            this.DgvIPScanner.Size = new System.Drawing.Size(1283, 422);
             this.DgvIPScanner.TabIndex = 6;
-            // 
-            // lblSc
-            // 
-            this.lblSc.AutoSize = true;
-            this.lblSc.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSc.Location = new System.Drawing.Point(980, 80);
-            this.lblSc.Name = "lblSc";
-            this.lblSc.Size = new System.Drawing.Size(24, 32);
-            this.lblSc.TabIndex = 7;
-            this.lblSc.Text = "-";
-            // 
-            // chk1
-            // 
-            this.chk1.AutoSize = true;
-            this.chk1.Checked = true;
-            this.chk1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.chk1.Location = new System.Drawing.Point(88, 32);
-            this.chk1.Name = "chk1";
-            this.chk1.Size = new System.Drawing.Size(214, 24);
-            this.chk1.TabIndex = 5;
-            this.chk1.Text = "Use Default Gateway.";
-            this.chk1.UseVisualStyleBackColor = true;
-            this.chk1.CheckedChanged += new System.EventHandler(this.chk1_CheckedChanged);
             // 
             // col_ipaddr
             // 
@@ -227,11 +220,45 @@
             this.col_countryname.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.col_countryname.Width = 200;
             // 
+            // lblSc
+            // 
+            this.lblSc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.lblSc.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblSc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblSc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSc.Location = new System.Drawing.Point(980, 40);
+            this.lblSc.Name = "lblSc";
+            this.lblSc.Size = new System.Drawing.Size(328, 75);
+            this.lblSc.TabIndex = 7;
+            this.lblSc.Text = "-";
+            this.lblSc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.AutoSize = false;
+            this.statusStrip1.BackColor = System.Drawing.Color.Silver;
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tooTotal});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 596);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1338, 39);
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tooTotal
+            // 
+            this.tooTotal.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tooTotal.Name = "tooTotal";
+            this.tooTotal.Size = new System.Drawing.Size(64, 33);
+            this.tooTotal.Text = "Total :";
+            // 
             // FormDemo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1338, 635);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.lblSc);
             this.Controls.Add(this.DgvIPScanner);
             this.Controls.Add(this.groupBox1);
@@ -244,8 +271,9 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvIPScanner)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -267,5 +295,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_companyAddr;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_countryCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_countryname;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel tooTotal;
     }
 }

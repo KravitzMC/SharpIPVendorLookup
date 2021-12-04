@@ -118,6 +118,7 @@ namespace Acolyte.Net.Manufacturer
         {
             var _ipAddrFrom = IPAddressFrom.ToString().Split('.');
             var _ipAddrTo = IPAddressTo.ToString().Split('.');
+            var totalIPScan = 0;
 
             IP_PREFIX_FROM = $"{_ipAddrFrom[0]}.{_ipAddrFrom[1]}.{_ipAddrFrom[2]}";
             IP_PREFIX_TO = $"{_ipAddrTo[0]}.{_ipAddrTo[1]}.{_ipAddrTo[2]}";
@@ -161,7 +162,8 @@ namespace Acolyte.Net.Manufacturer
                                     MacAddr, GetHostName(IpAddress),
                                     mac.companyName,
                                     mac.companyAddress,
-                                    mac.countryCode));
+                                    mac.countryCode,
+                                    totalIPScan+=1));
                             }
                         }
                         catch (Exception) { }
@@ -198,19 +200,36 @@ namespace Acolyte.Net.Manufacturer
         #region Utils
 
         /// <summary>
-        /// This function reference from : https://stackoverflow.com/a/13635038
+        /// This function reference from :https://stackoverflow.com/a/28546099
         /// </summary>
         /// <returns></returns>
         private IPAddress GetDefaultGateway()
         {
-            return NetworkInterface
-                .GetAllNetworkInterfaces()
-                .Where(n => n.OperationalStatus == OperationalStatus.Up)
-                .Where(n => n.NetworkInterfaceType != NetworkInterfaceType.Loopback)
-                .SelectMany(n => n.GetIPProperties()?.GatewayAddresses)
-                .Select(g => g?.Address)
-                .Where(a => a != null)
-                .FirstOrDefault();
+            IPAddress result = null;
+            var cards = NetworkInterface.GetAllNetworkInterfaces().ToList();
+            if (cards.Any())
+            {
+                foreach (var card in cards)
+                {
+                    var props = card.GetIPProperties();
+                    if (props == null)
+                        continue;
+
+                    var gateways = props.GatewayAddresses;
+                    if (!gateways.Any())
+                        continue;
+
+                    var gateway =
+                        gateways.FirstOrDefault(g => g.Address.AddressFamily.ToString() == "InterNetwork");
+                    if (gateway == null)
+                        continue;
+
+                    result = gateway.Address;
+                    break;
+                };
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -263,7 +282,6 @@ namespace Acolyte.Net.Manufacturer
         }
 
         #endregion
-
 
         #region Events
 

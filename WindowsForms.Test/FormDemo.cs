@@ -59,10 +59,12 @@ namespace WindowsForms.Test
                         $"{args.CountryCode}",
                         $"{args.CountryName}"
                         );
+
+                    tooTotal.Text = $"Scan Total : {args.Total} Items";
                 }));
             }
             else
-            {            
+            {
                 DgvIPScanner.Rows.Add(
                         $"{args.IPAddress}",
                         $"{args.MACAddress}",
