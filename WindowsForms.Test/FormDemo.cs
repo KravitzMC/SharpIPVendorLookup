@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Net;
-using Acolyte.Net.Manufacturer;
+using ZunMega.Net.DeviceManufacturer;
 
 namespace WindowsForms.Test
 {

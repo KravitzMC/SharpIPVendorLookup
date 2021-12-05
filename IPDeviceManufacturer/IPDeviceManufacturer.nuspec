@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package >
   <metadata>
-    <id>Acolyte.Net.Manufacturer</id>
-    <version>1.0.0.5</version>
+    <id>ZunMega.Net.DeviceManufacturer</id>
+    <version>1.0.0.6</version>
     <title>Sharp-IP Vendors Device Manufacturer</title>
-    <authors>Acolyte</authors>
+    <authors>ZunMega</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-	<iconUrl>https://cdn.iconsflow.com/NPeoOMtnhmyrBFCRyR7W5v81FnYU25-EliOLjtWLMaT0aJaS.png</iconUrl>
+	<iconUrl>https://raw.githubusercontent.com/KravitzMC/IPDeviceManufacturer/main/icon.png</iconUrl>
     <projectUrl>https://github.com/KravitzMC/IPDeviceManufacturer</projectUrl>
     <description>C# Find the vendor / manufacturer of a device description by IP/MAC Address from network adapter.</description>
-    <copyright>(c) 2021 Acolyte</copyright>
+    <copyright>(c) 2021 ZunMega</copyright>
     <tags>manufacturer vendor mac-address ip-address</tags>
 	 <dependencies>
       <dependency id="Bia.Countries" version="3.0.0" />

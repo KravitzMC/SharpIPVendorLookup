@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LiteDB;
 
-namespace Acolyte.Net.Manufacturer
+namespace ZunMega.Net.DeviceManufacturer
 {
     public static class Win32ApiCalls
     {

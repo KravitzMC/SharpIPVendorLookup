@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Linq;
-using System.Net;
-using System.Net.NetworkInformation;
-using Acolyte.Net.Manufacturer;
+using ZunMega.Net.DeviceManufacturer;
 
 namespace WindowsConsole.Test
 {
