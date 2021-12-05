@@ -7,7 +7,7 @@
     <authors>Acolyte</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-	<iconUrl>https://cdn.iconsflow.com/NPeoOMtnhmyrBFCRyR7W5v81FnYU25-EliOLjtWLMaT0aJaS.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/KravitzMC/IPDeviceManufacturer/main/icon.png</iconUrl>
     <projectUrl>https://github.com/KravitzMC/IPDeviceManufacturer</projectUrl>
     <description>C# Find the vendor / manufacturer of a device description by IP/MAC Address from network adapter.</description>
     <copyright>(c) 2021 Acolyte</copyright>
