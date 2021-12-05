@@ -12,7 +12,7 @@
     <description>C# Find the vendor / manufacturer of a device description by IP/MAC Address from network adapter.</description>
     <copyright>(c) 2021 Acolyte</copyright>
     <tags>manufacturer vendor mac-address ip-address</tags>
-	 <dependencies>
+    <dependencies>
       <dependency id="Bia.Countries" version="3.0.0" />
       <dependency id="LiteDB" version="5.0.11" />
     </dependencies>
