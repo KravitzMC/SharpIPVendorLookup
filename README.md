@@ -94,11 +94,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
-
-## Community
-
-[![Community](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/dotnetthiland.jpg)](https://www.dotnetthailand.com) 
-
 ## Todo 
 
 - [x] Convert Country Code to Country Name
@@ -106,3 +101,8 @@ Please make sure to update tests as appropriate.
 - [ ] Update Mac Vendor from IEEE to DB (if some data change)
 - [ ] Update Company Address from Google API to Country Code
 - [ ] Add some unit test
+
+
+## Community
+
+[![Community](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/dotnetthiland.jpg)](https://www.dotnetthailand.com) 
