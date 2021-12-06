@@ -98,6 +98,6 @@ Please make sure to update tests as appropriate.
 
 - [x] Convert Country Code to Country Name
 - [ ] Convet to .NET Standard
-- [ ] Update Mac Vendor from Standard IEEE to DB (if some data change)
-- [ ] Update Company Address from Google API to Country Code
+- [ ] Add Mac Vendor automation update from Standard IEEE to DB (if some data change)
+- [ ] Add Company Address automation update from Google API to Country Code (if some data change)
 - [ ] Add some unit test
