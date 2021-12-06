@@ -98,3 +98,10 @@ Please make sure to update tests as appropriate.
 ## Community
 
 [![Community](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/dotnetthiland.jpg)](https://www.dotnetthailand.com) 
+
+## Todo 
+
+- [x] Convert Country Code to Full Country Name
+- [ ] Convet to .NET Standard
+- [ ] Update Company Address from Google API to Country Code
+- [ ] Add some unit test
