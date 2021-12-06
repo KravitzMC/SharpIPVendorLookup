@@ -101,7 +101,7 @@ Please make sure to update tests as appropriate.
 
 ## Todo 
 
-- [x] Convert Country Code to Full Country Name
+- [x] Convert Country Code to Country Name
 - [ ] Convet to .NET Standard
 - [ ] Update Company Address from Google API to Country Code
 - [ ] Add some unit test
