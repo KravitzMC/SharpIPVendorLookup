@@ -58,7 +58,7 @@ namespace ZunMega.Net.DeviceManufacturer
         /// <summary>
         /// Get Current Device Path Database from assembly.
         /// </summary>
-        private string DevicePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dist", "Devices.db");
+        private string DevicePath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dist", "Lookup.db");
 
         public IPDeviceManufacturerScanner()
         {
