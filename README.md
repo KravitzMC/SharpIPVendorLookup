@@ -1,4 +1,4 @@
-## Sharp-IP  Vendors Device Manufacturer
+## Sharp IP-Vendors Lookup
 
 C# Find the vendor / manufacturer of a device description  by IP/MAC Address from network adapter.
 
