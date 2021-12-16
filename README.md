@@ -2,7 +2,7 @@
 
 C# Find the vendor / manufacturer of a device description  by IP/MAC Address from network adapter.
 
-[![IEEE_Standard](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/iee.png)](https://standards.ieee.org/products-services/regauth/index.html)
+[![IEEE_Standard](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/iee.png)](https://regauth.standards.ieee.org/standards-ra-web/pub/view.html#registries)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/LICENSE)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FKravitzMC%2FIPDeviceManufacturer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FKravitzMC%2FIPDeviceManufacturer?ref=badge_shield)
@@ -19,7 +19,7 @@ C# Find the vendor / manufacturer of a device description  by IP/MAC Address fro
 
 ✔️ Vendors / Manufacturer from the IEEE Standards Association have over than 40000+ devices .
 
-✔️ You can scan range IP address by without pinging because some client not response anytime. 
+✔️ Deep scan MAC Address by without pinging because some client not response anytime. 
     but we use Send ARP lookup instead to get all devices info.
 
 ## Help or Feedback
@@ -94,7 +94,10 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
+## Todo 
 
-## Community
-
-[![Community](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/dotnetthiland.jpg)](https://www.dotnetthailand.com) 
+- [x] Convert Country Code to Country Name
+- [ ] Convet to .NET Standard
+- [ ] Add Mac Vendor automation update from Standard IEEE to DB (if some data change)
+- [ ] Add Company Address automation update from Google API to Country Code (if some data change)
+- [ ] Add some unit test
