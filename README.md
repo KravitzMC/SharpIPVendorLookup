@@ -17,7 +17,7 @@ C# Find the vendor / manufacturer of a device description  by IP/MAC Address fro
 
 ✔️ Get more deivce information from IP/MAC by normal technical usually can't do it.
 
-✔️ Vendors / Manufacturer from the IEEE Standards Association have over than 40000+ devices .
+✔️ Vendors / Manufacturer from the IEEE Registration Authority.
 
 ✔️ Deep scan MAC Address by without pinging because some client not response anytime. 
     but we use Send ARP lookup instead to get all devices info.
