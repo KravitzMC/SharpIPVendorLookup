@@ -4,8 +4,7 @@ C# Find the vendor / manufacturer of a device description  by IP/MAC Address fro
 
 [![IEEE_Standard](https://github.com/KravitzMC/SharpIPVendorLookup/blob/main/IEEEIcon.png)](https://regauth.standards.ieee.org/standards-ra-web/pub/view.html#registries)
 
-[![License: CC BY-NC-ND 4.0](https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png)](https://creativecommons.org/licenses/by-sa/4.0/)
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/KravitzMC/IPDeviceManufacturer/blob/main/LICENSE)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FKravitzMC%2FIPDeviceManufacturer.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FKravitzMC%2FIPDeviceManufacturer?ref=badge_shield)
 
 ## Install via Nuget
