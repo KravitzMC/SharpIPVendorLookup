@@ -99,5 +99,5 @@ Please make sure to update tests as appropriate.
 - [x] Convert Country Code to Country Name
 - [ ] Convet to .NET Standard
 - [ ] Add Mac Vendor automation update from Standard IEEE to DB (if some data change)
-- [ ] Add Company Address automation update from Leaflet(OpenStreetMap) API to Country Code (if some data change)
+- [ ] Add Company Address automation update from Leaflet.js (OpenStreetMap) API to Country Code (if some data change)
 - [ ] Add some unit test
