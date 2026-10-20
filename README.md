@@ -9,6 +9,9 @@ C# Find the vendor / manufacturer of a device description  by IP/MAC Address fro
 
 ## Install via Nuget
 
+```bash
+dotnet add package ZunMega.Net.DeviceManufacturer
+```
 [![NuGet Badge](https://buildstats.info/nuget/ZunMega.Net.DeviceManufacturer)](https://www.nuget.org/packages/ZunMega.Net.DeviceManufacturer)
 
 ##  Why must be this library ?
