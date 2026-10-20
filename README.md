@@ -96,11 +96,3 @@ manufacturerScanner.SetIPAddress(IPAddress.Parse("192.168.1.15"));
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
-
-## Todo 
-
-- [x] Convert Country Code to Country Name
-- [ ] Convet to .NET Standard
-- [ ] Add Mac Vendor automation update from Standard IEEE to DB (if some data change)
-- [ ] Add Company Address automation update location from OpenStreetMap (OSM) data
-- [ ] Add some unit test
