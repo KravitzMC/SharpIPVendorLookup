@@ -16,7 +16,7 @@ dotnet add package ZunMega.Net.DeviceManufacturer
 
 ##  Why must be this library ?
 
-✔️ Fast IP/MAC scanner by using thread parallel.
+✔️ Fast IP/MAC scanner
 
 ✔️ Get more deivce information from IP/MAC by normal technical usually can't do it.
 
